@@ -5,7 +5,7 @@ import Menu from './Menu';
 import Image from "next/image";
 const Navbar = () => {
   return (
-    <div className="text-red-500 h-12 p-6 flex justify-between items-center border-b border-b-red-500 font-semibold text-xl">
+    <div className="text-red-500 h-12 px-6 flex justify-between items-center border-b border-b-red-500 font-semibold text-xl ">
        {/* left logo */}
     <div>
       <Link href={"/"} className="text-2xl font-semibold">
@@ -16,7 +16,7 @@ const Navbar = () => {
     <div className="hidden md:flex gap-3">
       <Link href={"/"}>Home</Link>
       <Link href={"/"}>Menu</Link>
-      <Link href={"/"}>Login</Link>
+      <Link href={"/login"}>Login</Link>
     </div>
    
     {/* mobile menu */}
@@ -25,7 +25,7 @@ const Navbar = () => {
     </div>
     {/* Right navlinks */}
     <div className="hidden md:flex gap-4 items-center ">
-    <Link href={"/"}>Login</Link>
+    <Link href={"/login"}>Login</Link>
     </div>
  
   </div>
