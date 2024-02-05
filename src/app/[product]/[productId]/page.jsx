@@ -25,7 +25,7 @@ const ProductDetailsPage = ({params}) => {
     const order = {product_title, price, image, origin, quantity};
    const handleOrder = async () => {
    await axios.post(`https://e-commerce-app-server.vercel.app/orders`,order).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
             toast.success(`${product_title} ordered successfully!`)
             router.push('/orders');

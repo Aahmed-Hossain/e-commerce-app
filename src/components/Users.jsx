@@ -8,7 +8,6 @@ import  { useContext } from 'react'
 import { AuthContext } from '@/providers/AuthProvider';
 const Users = () => {
   const {setUser,user} = useContext(AuthContext);
-  console.log({user})
   const [users, setUsers] = useState([]);
   const openModal = () => setModalOpen(true);
   const [isModalOpen, setModalOpen] = useState(false);

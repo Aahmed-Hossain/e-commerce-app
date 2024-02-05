@@ -1,7 +1,5 @@
 "use client"
 import { createContext, useState } from "react";
-import axios from "axios";
-import app from "@/firebase/firebase.config";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {

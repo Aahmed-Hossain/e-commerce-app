@@ -1,8 +1,12 @@
+'use client'
 import React from 'react'
 import Link from "next/link";
 import Menu from './Menu';
+import  { useContext } from 'react'
+import { AuthContext } from '@/providers/AuthProvider';
 const Navbar = () => {
-  
+  const {setUser,user} = useContext(AuthContext);
+  console.log(user?.data?.isAdmin);
   return (
     <div className="text-red-500 h-12 px-6 flex justify-between items-center border-b border-b-red-500 font-semibold text-xl ">
        {/* left logo */}
@@ -16,7 +20,6 @@ const Navbar = () => {
       <Link href={"/"}>Home</Link>
       <Link href={"/orders"}>Orders</Link>
       <Link href={"/users"}>Users</Link>
-      <Link href={"/register"}>Register</Link>
       <Link href={"/addedProducts"}>Added_Products</Link>
       <Link href={"/addProducts"}>Add_Products</Link>
     </div>
@@ -27,7 +30,13 @@ const Navbar = () => {
     </div>
     {/* Right navlinks */}
     <div className="hidden md:flex gap-4 items-center ">
-    <Link href={"/login"}>Login</Link>
+      {
+        user ? 
+        <button>
+        {user?.data?.name}
+        </button> : <Link href={"/login"}>Login</Link>
+      }
+    
     </div>
  
   </div>
