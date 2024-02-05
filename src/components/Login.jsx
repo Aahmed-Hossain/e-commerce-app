@@ -1,13 +1,18 @@
 "use client"
-import React, { useContext } from 'react'
+import React, { useContext, useState} from 'react'
 import Link from "next/link";
 import Lottie from "lottie-react";
 import lottie from '../../public/singing-contract.json'
 import { AuthContext } from '@/providers/AuthProvider';
-
+import { useRouter} from 'next/navigation';
+import { toast } from 'react-toastify';
 const Login = () => {
+  const router = useRouter();
   const {setUser,user} = useContext(AuthContext);
-  // console.log(user);
+  const [autoFillCredentials, setAutoFillCredentials] = useState({
+    number: "",
+    password: "",
+  });
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -26,13 +31,23 @@ const Login = () => {
       if (result.success) {
         localStorage.setItem("token", result.token);
           console.log("Login successful");
+          toast.success('User Logged In Successfuly')
+          router.push('/');
           setUser(result)
       } else {
         console.error(result.error);
+        toast.success(result.error)
       }
     } catch (error) {
       console.error("Error during login:", error);
+      toast.success(error)
     }
+  };
+  const handleAutoFill = (number, password) => {
+    setAutoFillCredentials({
+      number: number,
+      password: password,
+    });
   };
   
   return (
@@ -52,6 +67,7 @@ const Login = () => {
       <div className='flex'>
         <span className='border-b border-red-500 mt-1'>+88</span>
         <input  
+        defaultValue={autoFillCredentials.number}
       name="number"
       className="border-b border-red-500 w-full p-1 focus:outline-none bg-transparent"
       placeholder="01789 950153"
@@ -64,6 +80,7 @@ const Login = () => {
      <label className="text-sm font-bold">Password:
       </label>
       <input
+      defaultValue={autoFillCredentials.password}
       type="password" 
       className="border-b border-red-500 w-full p-1 focus:outline-none bg-transparent"
       placeholder="Password Please."
@@ -78,9 +95,15 @@ const Login = () => {
             value="Login"
                 />
               </div>
-              <div className="text-center pb-8 font-semibold text-gray-700">New to BucketBD? <Link className='text-red-500 hover:underline' href={'/register'} >Register</Link> </div>
+              
      </form>
-     
+     <button
+        className="font-semibold hover:bg-gray-200 px-3 py-2 border border-red-500 flex justify-around items-center mb-2 w-full"
+        onClick={() => handleAutoFill('01789950153', '01789950153')}
+      >
+        Login as Admin
+      </button>
+      <div className="text-center pb-6 font-semibold text-gray-700">New to BucketBD? <Link className='text-red-500 hover:underline' href={'/register'} >Register</Link> </div>
    </div>
     </div>
   )
