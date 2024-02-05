@@ -6,9 +6,9 @@ import React, { useState } from "react";
 
 const links = [
   {id:1, title: "Home", url: '/'},
-  {id:2, title: "Login", url: '/login'},
-  {id:3, title: "Working Hours", url: '/'},
-  {id:4, title: "Contact", url: '/'},
+  {id:2, title: "Orders", url: '/orders'},
+  {id:3, title: "Login", url: '/login'},
+  
 ]
 
 const Menu = () => {

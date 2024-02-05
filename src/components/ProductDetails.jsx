@@ -4,20 +4,21 @@ import { getSingleProduct } from '@/utils/getSingleProduct';
 import { toast } from 'react-toastify';
 import  axios from 'axios';
 import { useRouter} from 'next/navigation';
-const ProductDetailsPage = ({params}) => {
-  const router = useRouter();
-  const [singleProduct, setSingleProduct]  =  useState();
-  useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const result = await getSingleProduct(params.productId);
-              setSingleProduct(result);
-          } catch (error) {
-              console.error('Error fetching data:', error);
-          }
-      };
-      fetchData();
-  }, [params.productId]);
+const ProductDetails = ({params}) => {
+    const router = useRouter();
+    const [singleProduct, setSingleProduct]  =  useState();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await getSingleProduct(params.productId);
+                setSingleProduct(result);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, [params.productId]);
+    
     const {_id, product_title, price, image, description, origin,quantity} = singleProduct || {};
     const order = {product_title, price, image, origin, quantity};
    const handleOrder = async () => {
@@ -25,7 +26,7 @@ const ProductDetailsPage = ({params}) => {
         console.log(res.data);
         if (res.data.insertedId) {
             toast.success(`${product_title} ordered successfully!`)
-            router.push('/orders');
+            router.push('/');
         }
       })
       .catch((error) => console.log(error));
@@ -85,17 +86,4 @@ const ProductDetailsPage = ({params}) => {
       </div>
   )
 }
-export default ProductDetailsPage;
-
-// import ProductDetails from '@/components/ProductDetails'
-// import React from 'react'
-
-// const ProductDetailsPage = () => {
-//   return (
-//     <div>
-//       <ProductDetails></ProductDetails>
-//     </div>
-//   )
-// }
-
-// export default ProductDetailsPage
+export default ProductDetails;

@@ -24,12 +24,12 @@ const Register = () => {
         toast.warn('Should have bangladeshi phone number! 013||014||015||016||017||018||019')
       }
        else {
-       const {data} = await axios.post('https://e-commerce-app-server.vercel.app/users/register',user)
+        await axios.post('https://e-commerce-app-server.vercel.app/users/register',user)
        .then(res=>{
             console.log(res.data);
             if(res.data.insertedId){
             toast.success('Registration successful');
-            router.push('/login');
+            router.push('/');
             }
         });
       }
