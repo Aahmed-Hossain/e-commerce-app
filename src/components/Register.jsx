@@ -12,9 +12,10 @@ const Register = () => {
     event.preventDefault();
     const form = event.target;
     const number = form.number.value;
+    const name = form.name.value;
     const password = form.password.value;
     const isAdmin = false;
-    const user = {number, password, isAdmin}
+    const user = {number,name, password, isAdmin}
     const isValidFirstThreeDigits = /^(013|014|015|016|017|018|019)/.test(number.substring(0, 3));
     if (typeof number !== 'string') {
         toast.warn('Please enter a valid mobile number!');
@@ -60,6 +61,18 @@ const Register = () => {
        required
        />
       </div>
+     </div>
+    {/* name input */}
+    <div className="mt-4">
+     <label className="text-sm font-bold">Name:
+      </label>
+      <input
+      type="text" 
+      className="border-b border-red-500 w-full p-1 focus:outline-none bg-transparent"
+      placeholder="Your Name Please."
+      name="name"
+       required
+       />
      </div>
     {/* password input */}
     <div className="mt-4">
