@@ -27,12 +27,15 @@ const Register = () => {
        else {
         await axios.post('https://e-commerce-app-server.vercel.app/users/register',user)
        .then(res=>{
-            // console.log(res.data);
-            if(res.data.insertedId){
-            toast.success('Registration successful');
-            router.push('/');
-            }
-        });
+        // console.log(res.data);
+        if(res.data.error){
+          toast.error(res.data.error);
+        }
+        else if(res.data.success === true){
+        toast.success('Registration successful');
+        router.push('/')
+        }
+    });
       }
   };
   return (

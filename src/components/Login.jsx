@@ -23,15 +23,17 @@ const Login = () => {
      className="w-full ">
     {/* Register number input */}
     <div className="mt-4">
-     <label className="text-sm font-bold"> Register Number:
+     <label className="text-sm font-bold"> Mobile Number:
       </label>
-      <input  
-      name="register_number"
-      type="number" 
+      <div className='flex'>
+        <span className='border-b border-red-500 mt-1'>+88</span>
+        <input  
+      name="number"
       className="border-b border-red-500 w-full p-1 focus:outline-none bg-transparent"
-      placeholder="Your Registration number Please."
+      placeholder="01789 950153"
        required
        />
+      </div>
      </div>
     {/* password input */}
     <div className="mt-4">

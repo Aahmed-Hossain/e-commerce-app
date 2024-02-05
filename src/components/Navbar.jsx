@@ -15,7 +15,9 @@ const Navbar = () => {
       <Link href={"/"}>Home</Link>
       <Link href={"/orders"}>Orders</Link>
       <Link href={"/users"}>Users</Link>
-      <Link href={"/login"}>Login</Link>
+      <Link href={"/register"}>Register</Link>
+      <Link href={"/addedProducts"}>Added_Products</Link>
+      <Link href={"/addProducts"}>Add_Products</Link>
     </div>
    
     {/* mobile menu */}

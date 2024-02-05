@@ -4,6 +4,9 @@ import { getSingleProduct } from '@/utils/getSingleProduct';
 import { toast } from 'react-toastify';
 import  axios from 'axios';
 import { useRouter} from 'next/navigation';
+const metadata = {
+  title: 'BucketBD || Product Details',
+}
 const ProductDetailsPage = ({params}) => {
   const router = useRouter();
   const [singleProduct, setSingleProduct]  =  useState();
@@ -85,17 +88,5 @@ const ProductDetailsPage = ({params}) => {
       </div>
   )
 }
+
 export default ProductDetailsPage;
-
-// import ProductDetails from '@/components/ProductDetails'
-// import React from 'react'
-
-// const ProductDetailsPage = () => {
-//   return (
-//     <div>
-//       <ProductDetails></ProductDetails>
-//     </div>
-//   )
-// }
-
-// export default ProductDetailsPage

@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-
 const links = [
   {id:1, title: "Home", url: '/'},
   {id:2, title: "Orders", url: '/orders'},
-  {id:3, title: "Login", url: '/login'},
+  {id:3, title: "Register", url: '/register'},
   {id:3, title: "Users", url: '/users'},
+  {id:3, title: "Added_Products", url: '/addedProducts'},
+  {id:3, title: "Add Products", url: '/addProducts'},
 ]
 
 const Menu = () => {

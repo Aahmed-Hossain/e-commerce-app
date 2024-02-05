@@ -1,6 +1,9 @@
 
 import Orders from '@/components/Orders';
-import React from 'react'
+import React from 'react';
+export const metadata = {
+  title: 'BucketBD || Order Page',
+}
 const OrderPage = () => {
   return (
     <div>
