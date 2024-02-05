@@ -2,7 +2,7 @@ import React from 'react'
 import Link from "next/link";
 
 const ProductCard = ({product}) => {
-    console.log(product);
+    // console.log(product);
     const {_id, product_title, price, image} = product || {};
   return (
     <div className="my-4">

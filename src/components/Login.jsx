@@ -1,16 +1,40 @@
 "use client"
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from "next/link";
 import Lottie from "lottie-react";
 import lottie from '../../public/singing-contract.json'
+import { AuthContext } from '@/providers/AuthProvider';
+
 const Login = () => {
-  const handleLogin = (event) => {
+  const {setUser,user} = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogin = async (event) => {
     event.preventDefault();
     const form = event.target;
-    const register_number = form.register_number.value;
+    const number = form.number.value;
     const password = form.password.value;
-    console.log(register_number, password);
+    try {
+      const response = await fetch("https://e-commerce-app-server.vercel.app/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ number, password }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        localStorage.setItem("token", result.token);
+          console.log("Login successful");
+          setUser(result)
+      } else {
+        console.error(result.error);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
+  
   return (
     <div className="w-11/12  mx-auto text-red-500 flex flex-col md:flex-row lg:flex-row ">
       <div className="w-full md:w-1/2 lg:w-1/2 ">

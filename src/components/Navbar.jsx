@@ -2,6 +2,7 @@ import React from 'react'
 import Link from "next/link";
 import Menu from './Menu';
 const Navbar = () => {
+  
   return (
     <div className="text-red-500 h-12 px-6 flex justify-between items-center border-b border-b-red-500 font-semibold text-xl ">
        {/* left logo */}
