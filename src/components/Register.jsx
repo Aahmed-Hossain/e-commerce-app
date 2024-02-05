@@ -27,16 +27,13 @@ const Register = () => {
        else {
         await axios.post('https://e-commerce-app-server.vercel.app/users/register',user)
        .then(res=>{
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.insertedId){
             toast.success('Registration successful');
             router.push('/');
             }
         });
       }
-      
-    
-    console.log();
   };
   return (
     <div className="w-11/12  mx-auto text-red-500 flex flex-col md:flex-row lg:flex-row ">
