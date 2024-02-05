@@ -28,15 +28,12 @@ const Banner = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col h-screen  xl:h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] lg:flex-row bg-fuchsia-50 ">
+    <div className="flex flex-col h-screen  xl:h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] lg:h-[calc(100vh-9rem)] lg:flex-row md:flex-row bg-fuchsia-50 ">
       {/* upper text container */}
       <div className="flex-1 flex flex-col justify-center items-center gap-6  font-bold py-3 lg:w-1/2 ">
-        <h1 className="text-4xl text-center uppercase p-4 md:text-6xl xl:text-7xl text-red-500">
+        <h1 className="text-4xl text-center uppercase p-4 md:text-4xl lg:text-4xl xl:text-7xl text-red-500">
           {data[currentSlide].title}
         </h1>
-        <button className="bg-red-500 text-white font-semibold rounded p-3">
-          Order Now
-        </button>
       </div>
       {/* lower img container */}
       <div className=" w-full flex-1 relative ">
