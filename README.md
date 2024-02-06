@@ -16,6 +16,7 @@ BucketBD is a e-commerce where users can buy products, **Admin** can add product
 - **Admin** able to add products and can see all the added products
 - **Admin** able to see all registered users.
 - **Admin** can see the order done by the users.
+- **Admin** able to add customer,which is implemented using a modal.
 - Landing page with navbar, after login navbar will show with user name.
 - User must login with bangladeshi phone number.
 - Secured API with json web token using local storage.
