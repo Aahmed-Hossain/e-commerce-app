@@ -5,7 +5,7 @@ import Menu from './Menu';
 import  { useContext } from 'react'
 import { AuthContext } from '@/providers/AuthProvider';
 const Navbar = () => {
-  const {setUser,user} = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

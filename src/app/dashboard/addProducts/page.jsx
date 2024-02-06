@@ -1,6 +1,6 @@
 
 import React from 'react'
-import AddProduct from './../../components/AddProduct';
+import AddProduct from '../../../components/AddProduct';
 export const metadata = {
     title: 'BucketBD || Add Product',
   }
