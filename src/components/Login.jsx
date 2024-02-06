@@ -36,11 +36,11 @@ const Login = () => {
           setUser(result)
       } else {
         console.error(result.error);
-        toast.success(result.error)
+        toast.error(result.error)
       }
     } catch (error) {
       console.error("Error during login:", error);
-      toast.success(error)
+      toast.error(error)
     }
   };
   const handleAutoFill = (number, password) => {

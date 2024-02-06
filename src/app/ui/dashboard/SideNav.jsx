@@ -20,7 +20,7 @@ const SideNav = () => {
         </Link>
         {/* Nav Items */}
         <div className="flex flex-col justify-between flex-1 mt-6">
-          {user?.data?.isAdmin === true ? (
+          {user?.data?.isAdmin === false ? (
             ""
           ) : (
             <nav>

@@ -1,12 +1,14 @@
 "use client"
-import React from 'react'
+import React, { useContext} from 'react'
 import Link from "next/link";
 import Lottie from "lottie-react";
 import lottie from '../../public/singing-contract.json'
 import { toast } from 'react-toastify';
 import  axios from 'axios';
 import { useRouter} from 'next/navigation'
+import { AuthContext } from '@/providers/AuthProvider';
 const Register = () => {
+  const {setUser} = useContext(AuthContext);
     const router = useRouter();
     const handleLogin = async(event) => {
     event.preventDefault();
@@ -33,6 +35,7 @@ const Register = () => {
         }
         else if(res.data.success === true){
         toast.success('Registration successful');
+        setUser(res.data)
         router.push('/')
         }
     });
