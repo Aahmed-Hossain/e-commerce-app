@@ -25,7 +25,7 @@ BucketBD is a e-commerce where users can buy products, **Admin** can add product
 ## Tech Stack
 - Next.js
 - MongoDB
-- NOde.js
+- Node.js
 - Express.js
 - Tailwind
 - React-modal
