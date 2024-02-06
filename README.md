@@ -1,7 +1,7 @@
 # BucketBD MERN Stack Website with Dashboard.
 
 ## [Live Link](https://bucket-bd.vercel.app/)
-BucketBD is a e-commerce where users can buy products, **Admin** can add products to sell and see all products that Admin added.
+BucketBD is a e-commerce where users can buy products, **Admin**(Register Number:01789950153 Password: 01789950153) can add products to sell and see all products that Admin added.
 
 ## Table of Contents
 
