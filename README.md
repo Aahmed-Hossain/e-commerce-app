@@ -1,4 +1,4 @@
-# BucketBD MERN Stack Website with Dashboard.
+# BucketBD MERN Stack Website with Dashboard using Next.js.
 
 ## [Live Link](https://bucket-bd.vercel.app/)
 BucketBD is a e-commerce where users can buy products, **Admin**(Register Number:01789950153 Password: 01789950153) can add products to sell and see all products that Admin added.
@@ -11,7 +11,7 @@ BucketBD is a e-commerce where users can buy products, **Admin**(Register Number
 - [Screenshots](#screenshots)
 
 ## Features
-
+- Server Side Rendering(SSR) for All products Page and Client-Side Rendering (CSR) for all other pages.
 - **Admin** dashboard interface implemented after login with admin credentials
 - **Admin** able to add products and can see all the added products
 - **Admin** able to see all registered users.
