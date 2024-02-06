@@ -53,7 +53,7 @@ npm run dev
 
 ## Screenshots
 
-<h3>Landing Page: </h3>
+<h3>All Products Page: </h3>
 <img src="https://i.ibb.co/TH5L2tC/sc-bucket.png" width="450px"/>
 
 
