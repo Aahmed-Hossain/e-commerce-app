@@ -8,7 +8,8 @@ import { AuthContext } from '@/providers/AuthProvider';
 import AdminMenu from './AdminMenu';
 import Link from "next/link";
 const SideNav = () => {
-    const {setUser,user} = useContext(AuthContext);
+    const {logoutUser,user} = useContext(AuthContext);
+    
   return (
     <>
     <div
@@ -38,7 +39,7 @@ const SideNav = () => {
           address="/"
         />
         <button
-        //   onClick={logOut}
+          onClick={logoutUser}
           className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
         >
           <GrLogout className="w-5 h-5" />

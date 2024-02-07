@@ -6,43 +6,71 @@ import lottie from '../../public/singing-contract.json'
 import { AuthContext } from '@/providers/AuthProvider';
 import { useRouter} from 'next/navigation';
 import { toast } from 'react-toastify';
+import axios from 'axios';
+
 const Login = () => {
   const router = useRouter();
-  const {setUser,user} = useContext(AuthContext);
+  const {setUser} = useContext(AuthContext);
   const [autoFillCredentials, setAutoFillCredentials] = useState({
     number: "",
     password: "",
   });
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const number = form.number.value;
-    const password = form.password.value;
-    try {
-      const response = await fetch("https://e-commerce-app-server.vercel.app/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ number, password }),
-      });
-      const result = await response.json();
-      if (result.success) {
-        localStorage.setItem("token", result.token);
-          console.log("Login successful");
-          toast.success('User Logged In Successfuly')
-          router.push('/');
-          setUser(result)
-      } else {
-        console.error(result.error);
-        toast.error(result.error)
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-      toast.error(error)
+const handleLogin = async (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const number = form.number.value;
+  const password = form.password.value;
+  try {
+    const response = await axios.post("https://e-commerce-app-server.vercel.app/users/login", {
+      number,
+      password,
+    });
+    const result = response.data;
+    if (result.success) {
+      localStorage.setItem("token", result.token);
+      console.log("Login successful");
+      toast.success('User Logged In Successfully');
+      router.push('/');
+      setUser(result);
+    } else {
+      console.error(result.error);
+      toast.error(result.error);
     }
-  };
+  } catch (error) {
+    console.error("Error during login:", error);
+    toast.error(error.message);
+  }
+};
+  // const handleLogin = async (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const number = form.number.value;
+  //   const password = form.password.value;
+  //   try {
+  //     const response = await fetch("https://e-commerce-app-server.vercel.app/users/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ number, password }),
+  //     });
+  //     const result = await response.json();
+  //     if (result.success) {
+  //       localStorage.setItem("token", result.token);
+  //         console.log("Login successful");
+  //         toast.success('User Logged In Successfuly')
+  //         router.push('/');
+  //         setUser(result)
+  //     } else {
+  //       console.error(result.error);
+  //       toast.error(result.error)
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during login:", error);
+  //     toast.error(error)
+  //   }
+  // };
   const handleAutoFill = (number, password) => {
     setAutoFillCredentials({
       number: number,
@@ -94,8 +122,7 @@ const Login = () => {
             type="submit"
             value="Login"
                 />
-              </div>
-              
+              </div>     
      </form>
      <button
         className="font-semibold hover:bg-gray-200 px-3 py-2 border border-red-500 flex justify-around items-center mb-2 w-full"
@@ -108,5 +135,4 @@ const Login = () => {
     </div>
   )
 }
-
 export default Login;
